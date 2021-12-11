@@ -2,7 +2,7 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../metrics_page/metrics_page_widget.dart';
+import '../my_portal/my_portal_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -267,11 +267,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               return;
                             }
 
-                            await Navigator.push(
+                            await Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MetricsPageWidget(),
+                                builder: (context) => MyPortalWidget(),
                               ),
+                              (r) => false,
                             );
                           },
                           text: 'Login',
