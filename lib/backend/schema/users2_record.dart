@@ -4,10 +4,11 @@ import 'index.dart';
 import 'serializers.dart';
 import 'package:built_value/built_value.dart';
 
-part 'users_record.g.dart';
+part 'users2_record.g.dart';
 
-abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
-  static Serializer<UsersRecord> get serializer => _$usersRecordSerializer;
+abstract class Users2Record
+    implements Built<Users2Record, Users2RecordBuilder> {
+  static Serializer<Users2Record> get serializer => _$users2RecordSerializer;
 
   @nullable
   String get email;
@@ -35,7 +36,7 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
-  static void _initializeBuilder(UsersRecordBuilder builder) => builder
+  static void _initializeBuilder(Users2RecordBuilder builder) => builder
     ..email = ''
     ..displayName = ''
     ..photoUrl = ''
@@ -43,23 +44,23 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..phoneNumber = '';
 
   static CollectionReference get collection =>
-      FirebaseFirestore.instance.collection('users');
+      FirebaseFirestore.instance.collection('users2');
 
-  static Stream<UsersRecord> getDocument(DocumentReference ref) => ref
+  static Stream<Users2Record> getDocument(DocumentReference ref) => ref
       .snapshots()
       .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
-  UsersRecord._();
-  factory UsersRecord([void Function(UsersRecordBuilder) updates]) =
-      _$UsersRecord;
+  Users2Record._();
+  factory Users2Record([void Function(Users2RecordBuilder) updates]) =
+      _$Users2Record;
 
-  static UsersRecord getDocumentFromData(
+  static Users2Record getDocumentFromData(
           Map<String, dynamic> data, DocumentReference reference) =>
       serializers.deserializeWith(serializer,
           {...mapFromFirestore(data), kDocumentReferenceField: reference});
 }
 
-Map<String, dynamic> createUsersRecordData({
+Map<String, dynamic> createUsers2RecordData({
   String email,
   String displayName,
   String photoUrl,
@@ -68,8 +69,8 @@ Map<String, dynamic> createUsersRecordData({
   String phoneNumber,
 }) =>
     serializers.toFirestore(
-        UsersRecord.serializer,
-        UsersRecord((u) => u
+        Users2Record.serializer,
+        Users2Record((u) => u
           ..email = email
           ..displayName = displayName
           ..photoUrl = photoUrl
