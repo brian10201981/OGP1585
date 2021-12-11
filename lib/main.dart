@@ -9,6 +9,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:walmart_1585_o_p_d/home_page/home_page_widget.dart';
 import 'package:walmart_1585_o_p_d/metrics_page/metrics_page_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,12 +57,16 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(primarySwatch: Colors.blue),
       home: initialUser == null || displaySplashImage
-          ? const Center(
-              child: SizedBox(
-                width: 50,
-                height: 50,
-                child: CircularProgressIndicator(
-                  color: FlutterFlowTheme.primaryColor,
+          ? Container(
+              color: Color(0xFF0071CE),
+              child: Center(
+                child: Builder(
+                  builder: (context) => Image.asset(
+                    'assets/images/walmartpng.png',
+                    width: 200,
+                    height: 200,
+                    fit: BoxFit.scaleDown,
+                  ),
                 ),
               ),
             )
