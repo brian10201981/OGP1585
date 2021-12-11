@@ -140,13 +140,20 @@ class _MyPortalWidgetState extends State<MyPortalWidget> {
                                 borderWidth: 1,
                                 buttonSize: 60,
                                 icon: Icon(
-                                  Icons.add_box_outlined,
+                                  Icons.add,
                                   color: Colors.white,
                                   size: 30,
                                 ),
                                 onPressed: () {
                                   print('IconButton pressed ...');
                                 },
+                              ),
+                              Text(
+                                'Add Metric',
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                ),
                               )
                             ],
                           ),
@@ -166,6 +173,13 @@ class _MyPortalWidgetState extends State<MyPortalWidget> {
                                 onPressed: () {
                                   print('IconButton pressed ...');
                                 },
+                              ),
+                              Text(
+                                'TV Display',
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                ),
                               )
                             ],
                           )
