@@ -54,7 +54,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         children: [
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -267,12 +267,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               return;
                             }
 
-                            await Navigator.pushAndRemoveUntil(
+                            await Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => MyPortalWidget(),
                               ),
-                              (r) => false,
                             );
                           },
                           text: 'Login',
