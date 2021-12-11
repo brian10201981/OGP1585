@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "805861906882",
+    "project_id": "ogpdisplay",
+    "storage_bucket": "ogpdisplay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805861906882:android:96cdff8404a29adb73de5b",
+        "android_client_info": {
+          "package_name": "com.flutterflow.walmart1585opd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805861906882-90e5b8m58ljcim15b0bro1ostqs4cvfn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.walmart1585opd",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "805861906882-co85i3pbouji41r3vos5lu4b928trufm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJzd-bIkD-q3orV94B3CZRjjeOvy7xaxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805861906882-co85i3pbouji41r3vos5lu4b928trufm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "805861906882-8iqn81453t9686b7vp2iuqa4r9dtq3a4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.walmart1585opd"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
