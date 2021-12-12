@@ -34,6 +34,9 @@ abstract class MetricsRecord
   int get teamPickRate;
 
   @nullable
+  DateTime get timestamp;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -69,6 +72,7 @@ Map<String, dynamic> createMetricsRecordData({
   double sales,
   int firstTimePickrate,
   int teamPickRate,
+  DateTime timestamp,
 }) =>
     serializers.toFirestore(
         MetricsRecord.serializer,
@@ -78,4 +82,5 @@ Map<String, dynamic> createMetricsRecordData({
           ..postSub = postSub
           ..sales = sales
           ..firstTimePickrate = firstTimePickrate
-          ..teamPickRate = teamPickRate));
+          ..teamPickRate = teamPickRate
+          ..timestamp = timestamp));
