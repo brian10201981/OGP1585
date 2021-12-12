@@ -24,142 +24,193 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF0071CE),
-      endDrawer: Drawer(
-        elevation: 16,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 1,
-                decoration: BoxDecoration(
-                  color: Color(0xFFEEEEEE),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: 45,
-                          decoration: BoxDecoration(
-                            color: Color(0xFF0071CE),
-                            border: Border.all(
+      endDrawer: Container(
+        width: 300,
+        child: Drawer(
+          elevation: 16,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 1,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF0071CE),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: 300,
+                            height: 45,
+                            decoration: BoxDecoration(
                               color: Color(0xFF0071CE),
+                              border: Border.all(
+                                color: Color(0xFF0071CE),
+                              ),
                             ),
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Color(0xFF0071CE),
-                            border: Border.all(
+                          )
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: 300,
+                            height: 100,
+                            decoration: BoxDecoration(
                               color: Color(0xFF0071CE),
+                              border: Border.all(
+                                color: Color(0xFF0071CE),
+                              ),
                             ),
-                          ),
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'Hi, ',
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                AuthUserStreamWidget(
-                                  child: Text(
-                                    currentUserDisplayName,
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    'Hi, ',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                       fontSize: 18,
                                     ),
                                   ),
+                                  AuthUserStreamWidget(
+                                    child: Text(
+                                      currentUserDisplayName,
+                                      style:
+                                          FlutterFlowTheme.bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 3,
+                            height: MediaQuery.of(context).size.height * 1,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFEEEEEE),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 60,
+                                      icon: Icon(
+                                        Icons.add_circle,
+                                        color: Colors.black,
+                                        size: 30,
+                                      ),
+                                      onPressed: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                DailyMetricsUpdateWidget(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    Text(
+                                      'Add Metrics',
+                                      style: FlutterFlowTheme.bodyText1,
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 60,
+                                      icon: Icon(
+                                        Icons.connected_tv,
+                                        color: Colors.black,
+                                        size: 30,
+                                      ),
+                                      onPressed: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                MetricsPageWidget(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    Text(
+                                      'TV Display',
+                                      style: FlutterFlowTheme.bodyText1,
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 60,
+                                      icon: Icon(
+                                        Icons.logout,
+                                        color: Color(0xFFCE2424),
+                                        size: 30,
+                                      ),
+                                      onPressed: () async {
+                                        await signOut();
+                                        await Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                HomePageWidget(),
+                                          ),
+                                          (r) => false,
+                                        );
+                                      },
+                                    ),
+                                    Text(
+                                      'Logout',
+                                      style: FlutterFlowTheme.bodyText1,
+                                    )
+                                  ],
                                 )
                               ],
                             ),
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 60,
-                          icon: Icon(
-                            Icons.add_box_outlined,
-                            color: Colors.black,
-                            size: 30,
-                          ),
-                          onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    DailyMetricsUpdateWidget(),
-                              ),
-                            );
-                          },
-                        ),
-                        Text(
-                          'Add Daily Metrics',
-                          style: FlutterFlowTheme.bodyText1,
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 60,
-                          icon: Icon(
-                            Icons.logout,
-                            color: Color(0xFFCE2424),
-                            size: 30,
-                          ),
-                          onPressed: () async {
-                            await signOut();
-                            await Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomePageWidget(),
-                              ),
-                              (r) => false,
-                            );
-                          },
-                        ),
-                        Text(
-                          'Logout',
-                          style: FlutterFlowTheme.bodyText1,
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -197,7 +248,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -282,7 +333,8 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                             ),
                           ),
                           Text(
-                            'Updated: ',
+                            dateTimeFormat(
+                                'M/d h:m a', columnMetricsRecord.timestamp),
                             style: FlutterFlowTheme.title2.override(
                               fontFamily: 'Montserrat',
                               color: Colors.white,
@@ -340,7 +392,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                                     .bodyText1
                                                     .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 30,
+                                                  fontSize: 25,
                                                 ),
                                               ),
                                             )
@@ -362,9 +414,12 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
                                         children: [
                                           Text(
                                             columnMetricsRecord.waitTime,
+                                            textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Poppins',
@@ -427,7 +482,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 30,
+                                                fontSize: 25,
                                               ),
                                             ),
                                           )
@@ -456,6 +511,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                               columnMetricsRecord.preSub,
                                               formatType: FormatType.percent,
                                             ),
+                                            textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Poppins',
@@ -521,7 +577,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                                     .bodyText1
                                                     .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 30,
+                                                  fontSize: 25,
                                                 ),
                                               ),
                                             )
@@ -551,6 +607,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                               columnMetricsRecord.postSub,
                                               formatType: FormatType.percent,
                                             ),
+                                            textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Poppins',
@@ -616,7 +673,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                                     .bodyText1
                                                     .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 30,
+                                                  fontSize: 25,
                                                 ),
                                               ),
                                             )
@@ -649,6 +706,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                                   DecimalType.periodDecimal,
                                               currency: '',
                                             ),
+                                            textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Poppins',
@@ -691,44 +749,34 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                         5, 5, 0, 5),
                                     child: Container(
                                       width: 160,
-                                      height: 100,
+                                      height: 95,
                                       decoration: BoxDecoration(
                                         color: Color(0xFFEEEEEE),
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 1, 0, 0),
+                                            10, 1, 0, 0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Text(
-                                                '1st Time',
-                                                style: FlutterFlowTheme
-                                                    .bodyText1
-                                                    .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 30,
-                                                ),
+                                            Text(
+                                              '1st Time',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 25,
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Text(
-                                                'Pick Rate',
-                                                style: FlutterFlowTheme
-                                                    .bodyText1
-                                                    .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 30,
-                                                ),
+                                            Text(
+                                              'Pick Rate',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 25,
                                               ),
                                             )
                                           ],
@@ -758,6 +806,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                                   .firstTimePickrate,
                                               formatType: FormatType.percent,
                                             ),
+                                            textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Poppins',
@@ -800,42 +849,34 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                         5, 5, 0, 5),
                                     child: Container(
                                       width: 160,
-                                      height: 100,
+                                      height: 95,
                                       decoration: BoxDecoration(
                                         color: Color(0xFFEEEEEE),
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 1, 0, 0),
+                                            10, 1, 0, 0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Text(
-                                                'Team',
-                                                style: FlutterFlowTheme
-                                                    .bodyText1
-                                                    .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 30,
-                                                ),
+                                            Text(
+                                              'Team',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 25,
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 0, 0),
-                                              child: Text(
-                                                'Pick Rate',
-                                                style: FlutterFlowTheme
-                                                    .bodyText1
-                                                    .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 30,
-                                                ),
+                                            Text(
+                                              'Pick Rate',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 25,
                                               ),
                                             )
                                           ],
@@ -864,6 +905,7 @@ class _MetricsPageWidgetState extends State<MetricsPageWidget> {
                                               columnMetricsRecord.teamPickRate,
                                               formatType: FormatType.percent,
                                             ),
+                                            textAlign: TextAlign.end,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Poppins',
