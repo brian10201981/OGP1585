@@ -7,7 +7,7 @@ import 'auth/auth_util.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:walmart_1585_o_p_d/home_page/home_page_widget.dart';
-import 'package:walmart_1585_o_p_d/tv_display/tv_display_widget.dart';
+import 'package:walmart_1585_o_p_d/landing_page/landing_page_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() async {
@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
               ),
             )
           : currentUser.loggedIn
-              ? TvDisplayWidget()
+              ? LandingPageWidget()
               : HomePageWidget(),
     );
   }
