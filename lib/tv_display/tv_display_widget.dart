@@ -107,7 +107,7 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                           children: [
                             Container(
                               width: MediaQuery.of(context).size.width * 3,
-                              height: MediaQuery.of(context).size.height * 1,
+                              height: 250,
                               decoration: BoxDecoration(
                                 color: Color(0xFFEEEEEE),
                               ),
@@ -321,26 +321,47 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
-                            children: [],
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 30,
-                                borderWidth: 1,
-                                buttonSize: 60,
-                                icon: Icon(
-                                  Icons.menu,
-                                  color: Colors.white,
-                                  size: 30,
-                                ),
-                                onPressed: () async {
-                                  scaffoldKey.currentState.openEndDrawer();
-                                },
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 60,
+                                    icon: Icon(
+                                      Icons.refresh,
+                                      color: Colors.white,
+                                      size: 30,
+                                    ),
+                                    onPressed: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              TvDisplayWidget(),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 60,
+                                    icon: Icon(
+                                      Icons.menu,
+                                      color: Colors.white,
+                                      size: 30,
+                                    ),
+                                    onPressed: () async {
+                                      scaffoldKey.currentState.openEndDrawer();
+                                    },
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -348,16 +369,17 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
                                 '1585 OPD Metrics',
+                                textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.title2.override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
@@ -390,30 +412,6 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                                     ),
                                   ],
                                 ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 30,
-                                borderWidth: 1,
-                                buttonSize: 60,
-                                icon: Icon(
-                                  Icons.refresh,
-                                  color: Colors.white,
-                                  size: 30,
-                                ),
-                                onPressed: () async {
-                                  await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => TvDisplayWidget(),
-                                    ),
-                                  );
-                                },
                               ),
                             ],
                           ),
@@ -578,16 +576,12 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
-                                        child: Text(
-                                          'Post Sub',
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 25,
-                                          ),
+                                      Text(
+                                        'Post Sub',
+                                        style:
+                                            FlutterFlowTheme.bodyText1.override(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 25,
                                         ),
                                       ),
                                     ],
@@ -645,16 +639,12 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
-                                        child: Text(
-                                          'Sales',
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 25,
-                                          ),
+                                      Text(
+                                        'Sales',
+                                        style:
+                                            FlutterFlowTheme.bodyText1.override(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 25,
                                         ),
                                       ),
                                     ],

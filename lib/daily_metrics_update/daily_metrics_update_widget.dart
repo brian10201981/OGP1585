@@ -123,8 +123,8 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width * 3,
-                            height: MediaQuery.of(context).size.height * 1,
+                            width: 300,
+                            height: 250,
                             decoration: BoxDecoration(
                               color: Color(0xFFEEEEEE),
                             ),
