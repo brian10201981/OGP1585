@@ -64,7 +64,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   width: 150,
                                   height: 150,
                                   fit: BoxFit.fitWidth,
-                                )
+                                ),
                               ],
                             ),
                           ),
@@ -82,15 +82,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     color: Colors.white,
                                     fontSize: 20,
                                   ),
-                                )
+                                ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
             Container(
@@ -123,7 +123,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -178,7 +178,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               fontWeight: FontWeight.normal,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -246,7 +246,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               fontWeight: FontWeight.normal,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -292,7 +292,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             ),
                             borderRadius: 12,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -302,10 +302,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     indent: 20,
                     endIndent: 20,
                     color: Color(0xFFDBE2E7),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
