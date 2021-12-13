@@ -118,16 +118,16 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                         ),
                       ],
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 3,
-                          height: MediaQuery.of(context).size.height * 1,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                          ),
-                          child: SingleChildScrollView(
+                    SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 3,
+                            height: MediaQuery.of(context).size.height * 1,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFEEEEEE),
+                            ),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -252,8 +252,8 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                               ],
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -367,6 +367,24 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                       ),
                     ),
                     Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Whole Numbers only',
+                            style: FlutterFlowTheme.title2.override(
+                              fontFamily: 'Montserrat',
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -381,7 +399,7 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),
                                 ),
-                                hintText: 'Type wait time',
+                                hintText: 'Dont forget the colon!',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),
@@ -522,7 +540,7 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),
                                 ),
-                                hintText: 'Type Sales',
+                                hintText: 'Decimals ok!',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),

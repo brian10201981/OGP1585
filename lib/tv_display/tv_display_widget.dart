@@ -101,16 +101,16 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                           ),
                         ],
                       ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width * 3,
-                            height: MediaQuery.of(context).size.height * 1,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFEEEEEE),
-                            ),
-                            child: SingleChildScrollView(
+                      SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * 3,
+                              height: MediaQuery.of(context).size.height * 1,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFEEEEEE),
+                              ),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -235,8 +235,8 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                                 ],
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -286,7 +286,7 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                       children: [
                         Container(
                           width: MediaQuery.of(context).size.width,
-                          height: 55,
+                          height: 70,
                           decoration: BoxDecoration(
                             color: Color(0xFF0071CE),
                           ),
@@ -347,79 +347,78 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                         ],
                       ),
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [],
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              '1585 OPD Metrics',
-                              style: FlutterFlowTheme.title2.override(
-                                fontFamily: 'Montserrat',
-                                color: Colors.white,
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                '1585 OPD Metrics',
+                                style: FlutterFlowTheme.title2.override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Updated: ',
-                                    style: FlutterFlowTheme.title2.override(
-                                      fontFamily: 'Montserrat',
-                                      color: Colors.white,
-                                      fontSize: 18,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Updated: ',
+                                      style: FlutterFlowTheme.title2.override(
+                                        fontFamily: 'Montserrat',
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    dateTimeFormat('M/d h:m a',
-                                        columnMetricsRecord.timestamp),
-                                    style: FlutterFlowTheme.title2.override(
-                                      fontFamily: 'Montserrat',
-                                      color: Colors.white,
-                                      fontSize: 18,
+                                    Text(
+                                      dateTimeFormat('M/d h:m a',
+                                          columnMetricsRecord.timestamp),
+                                      style: FlutterFlowTheme.title2.override(
+                                        fontFamily: 'Montserrat',
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30,
-                              borderWidth: 1,
-                              buttonSize: 60,
-                              icon: Icon(
-                                Icons.refresh,
-                                color: Colors.white,
-                                size: 30,
+                            ],
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 30,
+                                borderWidth: 1,
+                                buttonSize: 60,
+                                icon: Icon(
+                                  Icons.refresh,
+                                  color: Colors.white,
+                                  size: 30,
+                                ),
+                                onPressed: () async {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => TvDisplayWidget(),
+                                    ),
+                                  );
+                                },
                               ),
-                              onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => TvDisplayWidget(),
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),

@@ -98,140 +98,142 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                         ),
                       ],
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 3,
-                          height: MediaQuery.of(context).size.height * 1,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
+                    SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 3,
+                            height: MediaQuery.of(context).size.height * 1,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFEEEEEE),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 60,
+                                      icon: Icon(
+                                        Icons.add_circle,
+                                        color: Colors.black,
+                                        size: 30,
+                                      ),
+                                      onPressed: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                DailyMetricsUpdateWidget(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    Text(
+                                      'Add Metrics',
+                                      style: FlutterFlowTheme.bodyText1,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 60,
+                                      icon: Icon(
+                                        Icons.add_circle,
+                                        color: Colors.black,
+                                        size: 30,
+                                      ),
+                                      onPressed: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                CreateNewRecordWidget(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    Text(
+                                      'First Time Metrics',
+                                      style: FlutterFlowTheme.bodyText1,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 60,
+                                      icon: Icon(
+                                        Icons.connected_tv,
+                                        color: Colors.black,
+                                        size: 30,
+                                      ),
+                                      onPressed: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                TvDisplayWidget(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    Text(
+                                      'TV Display',
+                                      style: FlutterFlowTheme.bodyText1,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 60,
+                                      icon: Icon(
+                                        Icons.logout,
+                                        color: Color(0xFFCE2424),
+                                        size: 30,
+                                      ),
+                                      onPressed: () async {
+                                        await signOut();
+                                        await Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                HomePageWidget(),
+                                          ),
+                                          (r) => false,
+                                        );
+                                      },
+                                    ),
+                                    Text(
+                                      'Logout',
+                                      style: FlutterFlowTheme.bodyText1,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.add_circle,
-                                      color: Colors.black,
-                                      size: 30,
-                                    ),
-                                    onPressed: () async {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              DailyMetricsUpdateWidget(),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                  Text(
-                                    'Add Metrics',
-                                    style: FlutterFlowTheme.bodyText1,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.add_circle,
-                                      color: Colors.black,
-                                      size: 30,
-                                    ),
-                                    onPressed: () async {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              CreateNewRecordWidget(),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                  Text(
-                                    'First Time Metrics',
-                                    style: FlutterFlowTheme.bodyText1,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.connected_tv,
-                                      color: Colors.black,
-                                      size: 30,
-                                    ),
-                                    onPressed: () async {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              TvDisplayWidget(),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                  Text(
-                                    'TV Display',
-                                    style: FlutterFlowTheme.bodyText1,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.logout,
-                                      color: Color(0xFFCE2424),
-                                      size: 30,
-                                    ),
-                                    onPressed: () async {
-                                      await signOut();
-                                      await Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              HomePageWidget(),
-                                        ),
-                                        (r) => false,
-                                      );
-                                    },
-                                  ),
-                                  Text(
-                                    'Logout',
-                                    style: FlutterFlowTheme.bodyText1,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),

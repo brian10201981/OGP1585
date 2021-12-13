@@ -117,16 +117,16 @@ class _CreateNewRecordWidgetState extends State<CreateNewRecordWidget> {
                         ),
                       ],
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 3,
-                          height: MediaQuery.of(context).size.height * 1,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
-                          ),
-                          child: SingleChildScrollView(
+                    SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 3,
+                            height: MediaQuery.of(context).size.height * 1,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFEEEEEE),
+                            ),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -251,8 +251,8 @@ class _CreateNewRecordWidgetState extends State<CreateNewRecordWidget> {
                               ],
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
