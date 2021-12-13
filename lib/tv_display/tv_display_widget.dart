@@ -110,128 +110,130 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                             decoration: BoxDecoration(
                               color: Color(0xFFEEEEEE),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.add_circle,
-                                        color: Colors.black,
-                                        size: 30,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30,
+                                        borderWidth: 1,
+                                        buttonSize: 60,
+                                        icon: Icon(
+                                          Icons.add_circle,
+                                          color: Colors.black,
+                                          size: 30,
+                                        ),
+                                        onPressed: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DailyMetricsUpdateWidget(),
+                                            ),
+                                          );
+                                        },
                                       ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                DailyMetricsUpdateWidget(),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    Text(
-                                      'Add Metrics',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.add_circle,
-                                        color: Colors.black,
-                                        size: 30,
+                                      Text(
+                                        'Add Metrics',
+                                        style: FlutterFlowTheme.bodyText1,
                                       ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                CreateNewRecordWidget(),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    Text(
-                                      'First Time Metrics',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.connected_tv,
-                                        color: Colors.black,
-                                        size: 30,
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30,
+                                        borderWidth: 1,
+                                        buttonSize: 60,
+                                        icon: Icon(
+                                          Icons.add_circle,
+                                          color: Colors.black,
+                                          size: 30,
+                                        ),
+                                        onPressed: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CreateNewRecordWidget(),
+                                            ),
+                                          );
+                                        },
                                       ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                TvDisplayWidget(),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    Text(
-                                      'TV Display',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.logout,
-                                        color: Color(0xFFCE2424),
-                                        size: 30,
+                                      Text(
+                                        'First Time Metrics',
+                                        style: FlutterFlowTheme.bodyText1,
                                       ),
-                                      onPressed: () async {
-                                        await signOut();
-                                        await Navigator.pushAndRemoveUntil(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                HomePageWidget(),
-                                          ),
-                                          (r) => false,
-                                        );
-                                      },
-                                    ),
-                                    Text(
-                                      'Logout',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30,
+                                        borderWidth: 1,
+                                        buttonSize: 60,
+                                        icon: Icon(
+                                          Icons.connected_tv,
+                                          color: Colors.black,
+                                          size: 30,
+                                        ),
+                                        onPressed: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TvDisplayWidget(),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                      Text(
+                                        'TV Display',
+                                        style: FlutterFlowTheme.bodyText1,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30,
+                                        borderWidth: 1,
+                                        buttonSize: 60,
+                                        icon: Icon(
+                                          Icons.logout,
+                                          color: Color(0xFFCE2424),
+                                          size: 30,
+                                        ),
+                                        onPressed: () async {
+                                          await signOut();
+                                          await Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  HomePageWidget(),
+                                            ),
+                                            (r) => false,
+                                          );
+                                        },
+                                      ),
+                                      Text(
+                                        'Logout',
+                                        style: FlutterFlowTheme.bodyText1,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -272,11 +274,11 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
           final columnMetricsRecord = columnMetricsRecordList.isNotEmpty
               ? columnMetricsRecordList.first
               : null;
-          return Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              SingleChildScrollView(
-                child: Column(
+          return SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Row(
@@ -347,7 +349,7 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -831,8 +833,8 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                     ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),

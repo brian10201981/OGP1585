@@ -15,26 +15,26 @@ abstract class MetricsRecord
   String get waitTime;
 
   @nullable
-  @BuiltValueField(wireName: 'pre_sub')
-  int get preSub;
-
-  @nullable
-  @BuiltValueField(wireName: 'post_sub')
-  int get postSub;
-
-  @nullable
   double get sales;
 
   @nullable
-  @BuiltValueField(wireName: 'first_time_pickrate')
-  int get firstTimePickrate;
+  DateTime get timestamp;
+
+  @nullable
+  @BuiltValueField(wireName: 'pre_sub')
+  double get preSub;
+
+  @nullable
+  @BuiltValueField(wireName: 'post_sub')
+  double get postSub;
 
   @nullable
   @BuiltValueField(wireName: 'team_pick_rate')
-  int get teamPickRate;
+  double get teamPickRate;
 
   @nullable
-  DateTime get timestamp;
+  @BuiltValueField(wireName: 'first_time_pickrate')
+  double get firstTimePickrate;
 
   @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
@@ -42,11 +42,11 @@ abstract class MetricsRecord
 
   static void _initializeBuilder(MetricsRecordBuilder builder) => builder
     ..waitTime = ''
-    ..preSub = 0
-    ..postSub = 0
     ..sales = 0.0
-    ..firstTimePickrate = 0
-    ..teamPickRate = 0;
+    ..preSub = 0.0
+    ..postSub = 0.0
+    ..teamPickRate = 0.0
+    ..firstTimePickrate = 0.0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('metrics');
@@ -67,20 +67,20 @@ abstract class MetricsRecord
 
 Map<String, dynamic> createMetricsRecordData({
   String waitTime,
-  int preSub,
-  int postSub,
   double sales,
-  int firstTimePickrate,
-  int teamPickRate,
   DateTime timestamp,
+  double preSub,
+  double postSub,
+  double teamPickRate,
+  double firstTimePickrate,
 }) =>
     serializers.toFirestore(
         MetricsRecord.serializer,
         MetricsRecord((m) => m
           ..waitTime = waitTime
+          ..sales = sales
+          ..timestamp = timestamp
           ..preSub = preSub
           ..postSub = postSub
-          ..sales = sales
-          ..firstTimePickrate = firstTimePickrate
           ..teamPickRate = teamPickRate
-          ..timestamp = timestamp));
+          ..firstTimePickrate = firstTimePickrate));
