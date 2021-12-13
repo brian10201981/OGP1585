@@ -167,6 +167,35 @@ class _CreateNewRecordWidgetState extends State<CreateNewRecordWidget> {
                                     borderWidth: 1,
                                     buttonSize: 60,
                                     icon: Icon(
+                                      Icons.add_circle,
+                                      color: Colors.black,
+                                      size: 30,
+                                    ),
+                                    onPressed: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              CreateNewRecordWidget(),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  Text(
+                                    'First Time Metrics',
+                                    style: FlutterFlowTheme.bodyText1,
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 60,
+                                    icon: Icon(
                                       Icons.connected_tv,
                                       color: Colors.black,
                                       size: 30,
