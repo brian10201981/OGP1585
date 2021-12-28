@@ -33,6 +33,27 @@ abstract class Users2Record
   String get phoneNumber;
 
   @nullable
+  bool get isSuperUser;
+
+  @nullable
+  bool get isCoach;
+
+  @nullable
+  bool get isTeamLead;
+
+  @nullable
+  bool get isAssociate;
+
+  @nullable
+  String get deptGroup;
+
+  @nullable
+  bool get produceMeat;
+
+  @nullable
+  bool get bakeryDeli;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -41,7 +62,14 @@ abstract class Users2Record
     ..displayName = ''
     ..photoUrl = ''
     ..uid = ''
-    ..phoneNumber = '';
+    ..phoneNumber = ''
+    ..isSuperUser = false
+    ..isCoach = false
+    ..isTeamLead = false
+    ..isAssociate = false
+    ..deptGroup = ''
+    ..produceMeat = false
+    ..bakeryDeli = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users2');
@@ -67,6 +95,13 @@ Map<String, dynamic> createUsers2RecordData({
   String uid,
   DateTime createdTime,
   String phoneNumber,
+  bool isSuperUser,
+  bool isCoach,
+  bool isTeamLead,
+  bool isAssociate,
+  String deptGroup,
+  bool produceMeat,
+  bool bakeryDeli,
 }) =>
     serializers.toFirestore(
         Users2Record.serializer,
@@ -76,4 +111,11 @@ Map<String, dynamic> createUsers2RecordData({
           ..photoUrl = photoUrl
           ..uid = uid
           ..createdTime = createdTime
-          ..phoneNumber = phoneNumber));
+          ..phoneNumber = phoneNumber
+          ..isSuperUser = isSuperUser
+          ..isCoach = isCoach
+          ..isTeamLead = isTeamLead
+          ..isAssociate = isAssociate
+          ..deptGroup = deptGroup
+          ..produceMeat = produceMeat
+          ..bakeryDeli = bakeryDeli));

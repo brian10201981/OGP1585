@@ -1,32 +1,30 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../daily_metrics_update/daily_metrics_update_widget.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../home_page/home_page_widget.dart';
-import '../opd_daily_metrics/opd_daily_metrics_widget.dart';
-import '../opd_display/opd_display_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DailyMetricsUpdateWidget extends StatefulWidget {
-  const DailyMetricsUpdateWidget({Key key}) : super(key: key);
+class AddNewUserWidget extends StatefulWidget {
+  const AddNewUserWidget({Key key}) : super(key: key);
 
   @override
-  _DailyMetricsUpdateWidgetState createState() =>
-      _DailyMetricsUpdateWidgetState();
+  _AddNewUserWidgetState createState() => _AddNewUserWidgetState();
 }
 
-class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
+class _AddNewUserWidgetState extends State<AddNewUserWidget> {
+  String dropDownValue;
   TextEditingController textController1;
   TextEditingController textController2;
   TextEditingController textController3;
   TextEditingController textController4;
   TextEditingController textController5;
-  TextEditingController textController6;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -37,7 +35,6 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
     textController3 = TextEditingController();
     textController4 = TextEditingController();
     textController5 = TextEditingController();
-    textController6 = TextEditingController();
   }
 
   @override
@@ -128,133 +125,334 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                             decoration: BoxDecoration(
                               color: Color(0xFFEEEEEE),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.add_circle,
-                                        color: Colors.black,
-                                        size: 30,
-                                      ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                DailyMetricsUpdateWidget(),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 5, 0, 0),
+                                        child: Text(
+                                          'Your Assigned Team',
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600,
                                           ),
-                                        );
-                                      },
-                                    ),
-                                    Text(
-                                      'Add Metrics',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.add_circle,
-                                        color: Colors.black,
-                                        size: 30,
+                                        ),
                                       ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                OpdDailyMetricsWidget(),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5, 0, 5, 0),
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 5, 0, 0),
+                                            child: Card(
+                                              clipBehavior:
+                                                  Clip.antiAliasWithSaveLayer,
+                                              color: Color(0xFF0071CE),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(10, 10, 10, 10),
+                                                child: Container(
+                                                  width: 200,
+                                                  height: 100,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            15),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          FaIcon(
+                                                            FontAwesomeIcons
+                                                                .appleAlt,
+                                                            color: Colors.black,
+                                                            size: 30,
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        0,
+                                                                        10,
+                                                                        0),
+                                                            child: Text(
+                                                              'Meat & \nProduce',
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style:
+                                                                  FlutterFlowTheme
+                                                                      .bodyText1
+                                                                      .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 16,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      SingleChildScrollView(
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            if (currentUserDocument
+                                                                    ?.produceMeat ??
+                                                                true)
+                                                              AuthUserStreamWidget(
+                                                                child:
+                                                                    FlutterFlowIconButton(
+                                                                  borderColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  borderRadius:
+                                                                      30,
+                                                                  borderWidth:
+                                                                      1,
+                                                                  buttonSize:
+                                                                      60,
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .add_box_outlined,
+                                                                    color: Colors
+                                                                        .black,
+                                                                    size: 30,
+                                                                  ),
+                                                                  onPressed:
+                                                                      () {
+                                                                    print(
+                                                                        'IconButton pressed ...');
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            if (currentUserDocument
+                                                                    ?.bakeryDeli ??
+                                                                true)
+                                                              AuthUserStreamWidget(
+                                                                child:
+                                                                    FlutterFlowIconButton(
+                                                                  borderColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  borderRadius:
+                                                                      30,
+                                                                  borderWidth:
+                                                                      1,
+                                                                  buttonSize:
+                                                                      60,
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .add_box_outlined,
+                                                                    color: Colors
+                                                                        .black,
+                                                                    size: 30,
+                                                                  ),
+                                                                  onPressed:
+                                                                      () {
+                                                                    print(
+                                                                        'IconButton pressed ...');
+                                                                  },
+                                                                ),
+                                                              ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                           ),
-                                        );
-                                      },
-                                    ),
-                                    Text(
-                                      'First Time Metrics',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.connected_tv,
-                                        color: Colors.black,
-                                        size: 30,
+                                        ],
                                       ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                OpdDisplayWidget(),
-                                          ),
-                                        );
-                                      },
                                     ),
-                                    Text(
-                                      'TV Display',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.logout,
-                                        color: Color(0xFFCE2424),
-                                        size: 30,
-                                      ),
-                                      onPressed: () async {
-                                        await signOut();
-                                        await Navigator.pushAndRemoveUntil(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                HomePageWidget(),
-                                          ),
-                                          (r) => false,
-                                        );
-                                      },
-                                    ),
-                                    Text(
-                                      'Logout',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
+                    if (currentUserDocument?.isTeamLead ?? true)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 0),
+                        child: AuthUserStreamWidget(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.cog,
+                                  color: Colors.white,
+                                  size: 16,
+                                ),
+                              ),
+                              Text(
+                                'Admin',
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    if (currentUserDocument?.isTeamLead ?? true)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        child: AuthUserStreamWidget(
+                          child: Container(
+                            width: 300,
+                            height: 250,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFEEEEEE),
+                            ),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  if (currentUserDocument?.isTeamLead ?? true)
+                                    InkWell(
+                                      onTap: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                AddNewUserWidget(),
+                                          ),
+                                        );
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 20,
+                                            borderWidth: 1,
+                                            buttonSize: 40,
+                                            icon: Icon(
+                                              Icons.add_circle,
+                                              color: Colors.black,
+                                              size: 20,
+                                            ),
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DailyMetricsUpdateWidget(),
+                                                ),
+                                              );
+                                            },
+                                          ),
+                                          Text(
+                                            'Add New User',
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  if (currentUserDocument?.isTeamLead ?? true)
+                                    InkWell(
+                                      onTap: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                AddNewUserWidget(),
+                                          ),
+                                        );
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 20,
+                                            borderWidth: 1,
+                                            buttonSize: 40,
+                                            icon: Icon(
+                                              Icons.add_circle,
+                                              color: Colors.black,
+                                              size: 20,
+                                            ),
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DailyMetricsUpdateWidget(),
+                                                ),
+                                              );
+                                            },
+                                          ),
+                                          Text(
+                                            'Add New User',
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -357,28 +555,10 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            'Update Daily Metrics',
+                            'Create New Associate',
                             style: FlutterFlowTheme.title2.override(
                               fontFamily: 'Montserrat',
                               color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Whole Numbers only',
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Montserrat',
-                              color: Colors.white,
-                              fontSize: 16,
                             ),
                           ),
                         ],
@@ -394,12 +574,12 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                               controller: textController1,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Wait TIme',
+                                labelText: 'First Name',
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),
                                 ),
-                                hintText: 'Dont forget the colon!',
+                                hintText: 'Type First Name',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),
@@ -425,7 +605,6 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                                 fontFamily: 'Poppins',
                                 color: Color(0xFFC70039),
                               ),
-                              keyboardType: TextInputType.number,
                             ),
                           ),
                         ],
@@ -441,12 +620,12 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                               controller: textController2,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Pre-Sub',
+                                labelText: 'Last Name',
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),
                                 ),
-                                hintText: 'Type Pre-Sub',
+                                hintText: 'Type Last Name',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),
@@ -472,7 +651,6 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                                 fontFamily: 'Poppins',
                                 color: Color(0xFFC70039),
                               ),
-                              keyboardType: TextInputType.number,
                             ),
                           ),
                         ],
@@ -488,12 +666,12 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                               controller: textController3,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Post-Sub',
+                                labelText: 'User ID',
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),
                                 ),
-                                hintText: 'Type Post-Sub',
+                                hintText: 'Type WM User ID',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFFC70039),
@@ -519,8 +697,57 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                                 fontFamily: 'Poppins',
                                 color: Color(0xFFC70039),
                               ),
-                              keyboardType: TextInputType.number,
                             ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      child: Text(
+                        'Choose Area',
+                        style: FlutterFlowTheme.title2.override(
+                          fontFamily: 'Montserrat',
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FlutterFlowDropDown(
+                            options: [
+                              'Produce & Meat',
+                              'Bakery & Deli',
+                              'Front End',
+                              'Hardlines',
+                              'Homelines',
+                              'Seasonal',
+                              'Grocery',
+                              'Consumables',
+                              'Apparel',
+                              'Electronics',
+                              'Overnights'
+                            ].toList(),
+                            onChanged: (val) =>
+                                setState(() => dropDownValue = val),
+                            width: MediaQuery.of(context).size.width * 0.89,
+                            height: 50,
+                            textStyle: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.black,
+                            ),
+                            fillColor: Colors.white,
+                            elevation: 2,
+                            borderColor: Colors.transparent,
+                            borderWidth: 0,
+                            borderRadius: 15,
+                            margin:
+                                EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                            hidesUnderline: true,
                           ),
                         ],
                       ),
@@ -533,53 +760,6 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                           Expanded(
                             child: TextFormField(
                               controller: textController4,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Sales',
-                                labelStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xFFC70039),
-                                ),
-                                hintText: 'Decimals ok!',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xFFC70039),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                filled: true,
-                                fillColor: Colors.white,
-                              ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xFFC70039),
-                              ),
-                              keyboardType: TextInputType.number,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              controller: textController5,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: '1st time pick rate',
@@ -626,7 +806,7 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                         children: [
                           Expanded(
                             child: TextFormField(
-                              controller: textController6,
+                              controller: textController5,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Team Pick Rate',
@@ -673,30 +853,8 @@ class _DailyMetricsUpdateWidgetState extends State<DailyMetricsUpdateWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           FFButtonWidget(
-                            onPressed: () async {
-                              final metricsUpdateData = createMetricsRecordData(
-                                waitTime: textController1.text,
-                                preSub: double.parse(textController2.text),
-                                postSub: double.parse(textController3.text),
-                                sales: double.parse(textController4.text),
-                                firstTimePickrate:
-                                    double.parse(textController5.text),
-                                teamPickRate:
-                                    double.parse(textController6.text),
-                                timestamp: getCurrentTimestamp,
-                              );
-                              await columnMetricsRecord.reference
-                                  .update(metricsUpdateData);
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Update Successful',
-                                    style: TextStyle(),
-                                  ),
-                                  duration: Duration(milliseconds: 4000),
-                                  backgroundColor: Color(0x00000000),
-                                ),
-                              );
+                            onPressed: () {
+                              print('Button pressed ...');
                             },
                             text: 'Update',
                             options: FFButtonOptions(

@@ -1,11 +1,12 @@
+import '../add_new_user/add_new_user_widget.dart';
 import '../auth/auth_util.dart';
-import '../create_new_record/create_new_record_widget.dart';
 import '../daily_metrics_update/daily_metrics_update_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../home_page/home_page_widget.dart';
-import '../tv_display/tv_display_widget.dart';
+import '../opd_daily_metrics/opd_daily_metrics_widget.dart';
+import '../opd_display/opd_display_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -158,7 +159,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                CreateNewRecordWidget(),
+                                                OpdDailyMetricsWidget(),
                                           ),
                                         );
                                       },
@@ -187,7 +188,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                TvDisplayWidget(),
+                                                OpdDisplayWidget(),
                                           ),
                                         );
                                       },
@@ -343,7 +344,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                               await Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => CreateNewRecordWidget(),
+                                  builder: (context) => OpdDailyMetricsWidget(),
                                 ),
                               );
                             },
@@ -419,13 +420,88 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                               await Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => TvDisplayWidget(),
+                                  builder: (context) => OpdDisplayWidget(),
                                 ),
                               );
                             },
                           ),
                           Text(
                             'TV Display',
+                            style: FlutterFlowTheme.title2.override(
+                              fontFamily: 'Montserrat',
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.logout,
+                              color: Color(0xFFC70039),
+                              size: 30,
+                            ),
+                            onPressed: () async {
+                              await signOut();
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePageWidget(),
+                                ),
+                                (r) => false,
+                              );
+                            },
+                          ),
+                          Text(
+                            'Logout',
+                            style: FlutterFlowTheme.title2.override(
+                              fontFamily: 'Montserrat',
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 10, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.cast_rounded,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AddNewUserWidget(),
+                                ),
+                              );
+                            },
+                          ),
+                          Text(
+                            'Add New User',
                             style: FlutterFlowTheme.title2.override(
                               fontFamily: 'Montserrat',
                               color: Colors.white,

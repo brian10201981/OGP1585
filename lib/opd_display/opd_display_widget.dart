@@ -1,23 +1,23 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
-import '../create_new_record/create_new_record_widget.dart';
 import '../daily_metrics_update/daily_metrics_update_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../home_page/home_page_widget.dart';
+import '../opd_daily_metrics/opd_daily_metrics_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TvDisplayWidget extends StatefulWidget {
-  const TvDisplayWidget({Key key}) : super(key: key);
+class OpdDisplayWidget extends StatefulWidget {
+  const OpdDisplayWidget({Key key}) : super(key: key);
 
   @override
-  _TvDisplayWidgetState createState() => _TvDisplayWidgetState();
+  _OpdDisplayWidgetState createState() => _OpdDisplayWidgetState();
 }
 
-class _TvDisplayWidgetState extends State<TvDisplayWidget> {
+class _OpdDisplayWidgetState extends State<OpdDisplayWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -161,7 +161,7 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  CreateNewRecordWidget(),
+                                                  OpdDailyMetricsWidget(),
                                             ),
                                           );
                                         },
@@ -190,7 +190,7 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  TvDisplayWidget(),
+                                                  OpdDisplayWidget(),
                                             ),
                                           );
                                         },
@@ -342,7 +342,7 @@ class _TvDisplayWidgetState extends State<TvDisplayWidget> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
-                                              TvDisplayWidget(),
+                                              OpdDisplayWidget(),
                                         ),
                                       );
                                     },

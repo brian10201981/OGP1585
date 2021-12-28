@@ -6,20 +6,20 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../home_page/home_page_widget.dart';
-import '../tv_display/tv_display_widget.dart';
+import '../opd_display/opd_display_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CreateNewRecordWidget extends StatefulWidget {
-  const CreateNewRecordWidget({Key key}) : super(key: key);
+class OpdDailyMetricsWidget extends StatefulWidget {
+  const OpdDailyMetricsWidget({Key key}) : super(key: key);
 
   @override
-  _CreateNewRecordWidgetState createState() => _CreateNewRecordWidgetState();
+  _OpdDailyMetricsWidgetState createState() => _OpdDailyMetricsWidgetState();
 }
 
-class _CreateNewRecordWidgetState extends State<CreateNewRecordWidget> {
+class _OpdDailyMetricsWidgetState extends State<OpdDailyMetricsWidget> {
   TextEditingController textController1;
   TextEditingController textController2;
   TextEditingController textController3;
@@ -130,35 +130,40 @@ class _CreateNewRecordWidgetState extends State<CreateNewRecordWidget> {
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.add_circle,
-                                        color: Colors.black,
-                                        size: 30,
-                                      ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                DailyMetricsUpdateWidget(),
+                                if (currentUserDocument?.isCoach ?? true)
+                                  AuthUserStreamWidget(
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        if (currentUserDocument?.isCoach ??
+                                            true)
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 30,
+                                            borderWidth: 1,
+                                            buttonSize: 60,
+                                            icon: Icon(
+                                              Icons.add_circle,
+                                              color: Colors.black,
+                                              size: 30,
+                                            ),
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DailyMetricsUpdateWidget(),
+                                                ),
+                                              );
+                                            },
                                           ),
-                                        );
-                                      },
+                                        Text(
+                                          'Add Metrics',
+                                          style: FlutterFlowTheme.bodyText1,
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      'Add Metrics',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
+                                  ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -177,7 +182,7 @@ class _CreateNewRecordWidgetState extends State<CreateNewRecordWidget> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                CreateNewRecordWidget(),
+                                                OpdDailyMetricsWidget(),
                                           ),
                                         );
                                       },
@@ -206,7 +211,7 @@ class _CreateNewRecordWidgetState extends State<CreateNewRecordWidget> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                TvDisplayWidget(),
+                                                OpdDisplayWidget(),
                                           ),
                                         );
                                       },
