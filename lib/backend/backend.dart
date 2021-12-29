@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'schema/metrics_record.dart';
 import 'schema/users2_record.dart';
 import 'schema/produce_news_record.dart';
+import 'schema/store_news_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,6 +17,7 @@ export 'schema/serializers.dart';
 export 'schema/metrics_record.dart';
 export 'schema/users2_record.dart';
 export 'schema/produce_news_record.dart';
+export 'schema/store_news_record.dart';
 
 Stream<List<MetricsRecord>> queryMetricsRecord(
         {Query Function(Query) queryBuilder,
@@ -36,6 +38,13 @@ Stream<List<ProduceNewsRecord>> queryProduceNewsRecord(
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollection(ProduceNewsRecord.collection, ProduceNewsRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Stream<List<StoreNewsRecord>> queryStoreNewsRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(StoreNewsRecord.collection, StoreNewsRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<T>> queryCollection<T>(
