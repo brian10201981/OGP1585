@@ -19,6 +19,7 @@ export 'schema/users2_record.dart';
 export 'schema/produce_news_record.dart';
 export 'schema/store_news_record.dart';
 
+/// Functions to query MetricsRecords (as a Stream and as a Future).
 Stream<List<MetricsRecord>> queryMetricsRecord(
         {Query Function(Query) queryBuilder,
         int limit = -1,
@@ -26,6 +27,14 @@ Stream<List<MetricsRecord>> queryMetricsRecord(
     queryCollection(MetricsRecord.collection, MetricsRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
+Future<List<MetricsRecord>> queryMetricsRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(MetricsRecord.collection, MetricsRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+/// Functions to query Users2Records (as a Stream and as a Future).
 Stream<List<Users2Record>> queryUsers2Record(
         {Query Function(Query) queryBuilder,
         int limit = -1,
@@ -33,6 +42,14 @@ Stream<List<Users2Record>> queryUsers2Record(
     queryCollection(Users2Record.collection, Users2Record.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
+Future<List<Users2Record>> queryUsers2RecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(Users2Record.collection, Users2Record.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+/// Functions to query ProduceNewsRecords (as a Stream and as a Future).
 Stream<List<ProduceNewsRecord>> queryProduceNewsRecord(
         {Query Function(Query) queryBuilder,
         int limit = -1,
@@ -40,11 +57,27 @@ Stream<List<ProduceNewsRecord>> queryProduceNewsRecord(
     queryCollection(ProduceNewsRecord.collection, ProduceNewsRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
+Future<List<ProduceNewsRecord>> queryProduceNewsRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(
+        ProduceNewsRecord.collection, ProduceNewsRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+/// Functions to query StoreNewsRecords (as a Stream and as a Future).
 Stream<List<StoreNewsRecord>> queryStoreNewsRecord(
         {Query Function(Query) queryBuilder,
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollection(StoreNewsRecord.collection, StoreNewsRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<StoreNewsRecord>> queryStoreNewsRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(StoreNewsRecord.collection, StoreNewsRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<T>> queryCollection<T>(
@@ -58,6 +91,27 @@ Stream<List<T>> queryCollection<T>(
     query = query.limit(singleRecord ? 1 : limit);
   }
   return query.snapshots().map((s) => s.docs
+      .map(
+        (d) => safeGet(
+          () => serializers.deserializeWith(serializer, serializedData(d)),
+          (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
+        ),
+      )
+      .where((d) => d != null)
+      .toList());
+}
+
+Future<List<T>> queryCollectionOnce<T>(
+    CollectionReference collection, Serializer<T> serializer,
+    {Query Function(Query) queryBuilder,
+    int limit = -1,
+    bool singleRecord = false}) {
+  final builder = queryBuilder ?? (q) => q;
+  var query = builder(collection);
+  if (limit > 0 || singleRecord) {
+    query = query.limit(singleRecord ? 1 : limit);
+  }
+  return query.get().then((s) => s.docs
       .map(
         (d) => safeGet(
           () => serializers.deserializeWith(serializer, serializedData(d)),

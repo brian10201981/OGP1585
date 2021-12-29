@@ -28,6 +28,10 @@ abstract class ProduceNewsRecord
       .snapshots()
       .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static Future<ProduceNewsRecord> getDocumentOnce(DocumentReference ref) => ref
+      .get()
+      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+
   ProduceNewsRecord._();
   factory ProduceNewsRecord([void Function(ProduceNewsRecordBuilder) updates]) =
       _$ProduceNewsRecord;

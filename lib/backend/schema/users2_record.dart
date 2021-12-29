@@ -78,6 +78,10 @@ abstract class Users2Record
       .snapshots()
       .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static Future<Users2Record> getDocumentOnce(DocumentReference ref) => ref
+      .get()
+      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+
   Users2Record._();
   factory Users2Record([void Function(Users2RecordBuilder) updates]) =
       _$Users2Record;

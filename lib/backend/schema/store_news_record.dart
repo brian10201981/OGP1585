@@ -43,6 +43,10 @@ abstract class StoreNewsRecord
       .snapshots()
       .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static Future<StoreNewsRecord> getDocumentOnce(DocumentReference ref) => ref
+      .get()
+      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+
   StoreNewsRecord._();
   factory StoreNewsRecord([void Function(StoreNewsRecordBuilder) updates]) =
       _$StoreNewsRecord;

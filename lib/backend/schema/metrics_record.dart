@@ -55,6 +55,10 @@ abstract class MetricsRecord
       .snapshots()
       .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static Future<MetricsRecord> getDocumentOnce(DocumentReference ref) => ref
+      .get()
+      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+
   MetricsRecord._();
   factory MetricsRecord([void Function(MetricsRecordBuilder) updates]) =
       _$MetricsRecord;

@@ -459,25 +459,59 @@ class _StoreNewsWidgetState extends State<StoreNewsWidget> {
                                                         ),
                                                       ),
                                                     ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 5, 0, 0),
-                                                      child: Text(
-                                                        columnStoreNewsRecord
-                                                            .bodyContent,
-                                                        style: FlutterFlowTheme
-                                                            .title2
-                                                            .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.white,
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.w300,
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Wrap(
+                                                          spacing: 0,
+                                                          runSpacing: 0,
+                                                          alignment:
+                                                              WrapAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              WrapCrossAlignment
+                                                                  .start,
+                                                          direction:
+                                                              Axis.vertical,
+                                                          runAlignment:
+                                                              WrapAlignment
+                                                                  .start,
+                                                          verticalDirection:
+                                                              VerticalDirection
+                                                                  .down,
+                                                          clipBehavior:
+                                                              Clip.none,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          5,
+                                                                          0,
+                                                                          0),
+                                                              child: Text(
+                                                                columnStoreNewsRecord
+                                                                    .bodyContent,
+                                                                style:
+                                                                    FlutterFlowTheme
+                                                                        .title2
+                                                                        .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize: 14,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
                                                         ),
-                                                      ),
+                                                      ],
                                                     ),
                                                   ],
                                                 ),
