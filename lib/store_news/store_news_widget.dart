@@ -320,7 +320,7 @@ class _StoreNewsWidgetState extends State<StoreNewsWidget> {
                                 style: FlutterFlowTheme.title2.override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
-                                  fontSize: 16,
+                                  fontSize: 20,
                                 ),
                               ),
                             ],
@@ -383,7 +383,7 @@ class _StoreNewsWidgetState extends State<StoreNewsWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10, 10, 10, 10),
                                     child: Container(
-                                      width: 275,
+                                      width: 300,
                                       height: 125,
                                       decoration: BoxDecoration(
                                         color: Color(0xFF0071CE),
@@ -437,7 +437,7 @@ class _StoreNewsWidgetState extends State<StoreNewsWidget> {
                                                             WrapCrossAlignment
                                                                 .start,
                                                         direction:
-                                                            Axis.horizontal,
+                                                            Axis.vertical,
                                                         runAlignment:
                                                             WrapAlignment.start,
                                                         verticalDirection:
@@ -510,28 +510,46 @@ class _StoreNewsWidgetState extends State<StoreNewsWidget> {
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
-                                                                    child: Text(
-                                                                      columnStoreNewsRecord
-                                                                          .bodyContent,
-                                                                      style: FlutterFlowTheme
-                                                                          .title2
-                                                                          .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontSize:
-                                                                            12,
-                                                                        fontWeight:
-                                                                            FontWeight.w300,
-                                                                      ),
+                                                                  SingleChildScrollView(
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Wrap(
+                                                                          spacing:
+                                                                              0,
+                                                                          runSpacing:
+                                                                              0,
+                                                                          alignment:
+                                                                              WrapAlignment.start,
+                                                                          crossAxisAlignment:
+                                                                              WrapCrossAlignment.start,
+                                                                          direction:
+                                                                              Axis.vertical,
+                                                                          runAlignment:
+                                                                              WrapAlignment.start,
+                                                                          verticalDirection:
+                                                                              VerticalDirection.down,
+                                                                          clipBehavior:
+                                                                              Clip.none,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                                                              child: Text(
+                                                                                columnStoreNewsRecord.bodyContent,
+                                                                                style: FlutterFlowTheme.title2.override(
+                                                                                  fontFamily: 'Montserrat',
+                                                                                  color: Colors.white,
+                                                                                  fontSize: 14,
+                                                                                  fontWeight: FontWeight.w300,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ],
                                                                     ),
                                                                   ),
                                                                 ],
