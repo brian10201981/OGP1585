@@ -1,4 +1,3 @@
-import '../add_new_user/add_new_user_widget.dart';
 import '../add_store_news/add_store_news_widget.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
@@ -7,7 +6,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../home_page/home_page_widget.dart';
-import '../opd_display/opd_display_widget.dart';
+import '../store_news/store_news_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -153,6 +152,46 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                                     ],
                                   ),
                                 ),
+                                InkWell(
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            AddStoreNewsWidget(),
+                                      ),
+                                    );
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30,
+                                        borderWidth: 1,
+                                        buttonSize: 60,
+                                        icon: Icon(
+                                          Icons.add_circle,
+                                          color: Colors.black,
+                                          size: 30,
+                                        ),
+                                        onPressed: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  AddStoreNewsWidget(),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                      Text(
+                                        'Add Store News Article',
+                                        style: FlutterFlowTheme.bodyText1,
+                                      ),
+                                    ],
+                                  ),
+                                ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -180,35 +219,6 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                                     ),
                                     Text(
                                       'Logout',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.add_circle,
-                                        color: Colors.black,
-                                        size: 30,
-                                      ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                AddStoreNewsWidget(),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    Text(
-                                      'Add Store News Article',
                                       style: FlutterFlowTheme.bodyText1,
                                     ),
                                   ],
@@ -362,13 +372,6 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
-                  ),
-                ),
-                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                   child: StreamBuilder<List<StoreNewsRecord>>(
                     stream: queryStoreNewsRecord(
@@ -402,113 +405,136 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Card(
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              color: Color(0xFFF5F5F5),
-                              elevation: 6,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 10, 10, 10),
-                                child: Container(
-                                  width: 250,
-                                  height: 125,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF0071CE),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5, 5, 5, 5),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Container(
-                                                  width: 60,
-                                                  height: 60,
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Image.network(
-                                                    'https://picsum.photos/seed/533/600',
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(5, 0, 0, 0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 10, 0, 0),
-                                                    child: Text(
-                                                      rowStoreNewsRecord.title,
-                                                      style: FlutterFlowTheme
-                                                          .title2
-                                                          .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color: Colors.white,
-                                                        fontSize: 16,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 5, 0, 0),
-                                                    child: Text(
-                                                      rowStoreNewsRecord
-                                                          .bodyContent,
-                                                      style: FlutterFlowTheme
-                                                          .title2
-                                                          .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color: Colors.white,
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
+                          children: [],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: Color(0xFFF5F5F5),
+                            elevation: 6,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Container(
+                                width: 125,
+                                height: 125,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF0071CE),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: InkWell(
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => StoreNewsWidget(),
+                                      ),
+                                    );
+                                  },
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        'assets/images/spark.png',
+                                        width: 40,
+                                        height: 40,
+                                        fit: BoxFit.contain,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 10, 0, 0),
+                                        child: Text(
+                                          '1585',
+                                          style:
+                                              FlutterFlowTheme.title2.override(
+                                            fontFamily: 'Montserrat',
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                          ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                      Text(
+                                        'Store News',
+                                        style: FlutterFlowTheme.title2.override(
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
                             ),
-                          ],
-                        ),
-                      );
-                    },
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: Color(0xFFF5F5F5),
+                            elevation: 6,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Container(
+                                width: 125,
+                                height: 125,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF0071CE),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/spark.png',
+                                      width: 40,
+                                      height: 40,
+                                      fit: BoxFit.contain,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 10, 0, 0),
+                                      child: Text(
+                                        'My Team',
+                                        style: FlutterFlowTheme.title2.override(
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
@@ -600,7 +626,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 10, 0, 0),
                                       child: Text(
-                                        'My Team',
+                                        'Admin',
                                         style: FlutterFlowTheme.title2.override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.white,
@@ -611,156 +637,6 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                                   ],
                                 ),
                               ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 10, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.cast_rounded,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            onPressed: () async {
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => OpdDisplayWidget(),
-                                ),
-                              );
-                            },
-                          ),
-                          Text(
-                            'TV Display',
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Montserrat',
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.logout,
-                              color: Color(0xFFC70039),
-                              size: 30,
-                            ),
-                            onPressed: () async {
-                              await signOut();
-                              await Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => HomePageWidget(),
-                                ),
-                                (r) => false,
-                              );
-                            },
-                          ),
-                          Text(
-                            'Logout',
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Montserrat',
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 10, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.cast_rounded,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            onPressed: () async {
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => AddNewUserWidget(),
-                                ),
-                              );
-                            },
-                          ),
-                          Text(
-                            'Add New User',
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Montserrat',
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.logout,
-                              color: Color(0xFFC70039),
-                              size: 30,
-                            ),
-                            onPressed: () async {
-                              await signOut();
-                              await Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => HomePageWidget(),
-                                ),
-                                (r) => false,
-                              );
-                            },
-                          ),
-                          Text(
-                            'Logout',
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Montserrat',
-                              color: Colors.white,
-                              fontSize: 16,
                             ),
                           ),
                         ],
