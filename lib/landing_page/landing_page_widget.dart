@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../home_page/home_page_widget.dart';
 import '../opd_daily_metrics/opd_daily_metrics_widget.dart';
 import '../opd_display/opd_display_widget.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -278,7 +279,22 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
-                        children: [],
+                        children: [
+                          Image.asset(
+                            'assets/images/walmartpng.png',
+                            width: 75,
+                            height: 80,
+                            fit: BoxFit.contain,
+                          ),
+                          Text(
+                            'Store 1585',
+                            style: FlutterFlowTheme.title2.override(
+                              fontFamily: 'Montserrat',
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
@@ -304,18 +320,82 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                     ],
                   ),
                 ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 80,
+                      height: 80,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: Image.network(
+                        'https://picsum.photos/seed/377/600',
+                      ),
+                    ),
+                  ],
+                ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        'Choose below',
-                        style: FlutterFlowTheme.title2.override(
-                          fontFamily: 'Montserrat',
-                          color: Colors.white,
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Hi ',
+                                style: FlutterFlowTheme.title2.override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      AuthUserStreamWidget(
+                        child: Text(
+                          currentUserDisplayName,
+                          style: FlutterFlowTheme.title2.override(
+                            fontFamily: 'Montserrat',
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AuthUserStreamWidget(
+                        child: Text(
+                          functions
+                              .positionCall(currentUserDocument?.deptGroup),
+                          style: FlutterFlowTheme.title2.override(
+                            fontFamily: 'Montserrat',
+                            color: Colors.white,
+                            fontSize: 14,
+                          ),
                         ),
                       ),
                     ],
@@ -329,70 +409,11 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
                     children: [
                       Column(
                         mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.add_circle,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            onPressed: () async {
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => OpdDailyMetricsWidget(),
-                                ),
-                              );
-                            },
-                          ),
-                          Text(
-                            '1st \nTime?',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Montserrat',
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.add_circle,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            onPressed: () async {
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      DailyMetricsUpdateWidget(),
-                                ),
-                              );
-                            },
-                          ),
-                          Text(
-                            'Daily\nMetrics',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.title2.override(
-                              fontFamily: 'Montserrat',
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ],
                   ),
